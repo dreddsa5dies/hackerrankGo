@@ -6,7 +6,6 @@ import (
 )
 
 func main() {
-	//Enter your code here. Read input from STDIN. Print output to STDOUT
 	var (
 		mealCost   float64
 		tipPercent int
@@ -24,4 +23,15 @@ func main() {
 		totalCost = x
 		fmt.Printf("The total meal cost is %v dollars.\n", totalCost)
 	}
+
+	/*
+		// Изящный вариант
+		fmt.Scanln(&mealCost)
+		fmt.Scanln(&tipPercent)
+		fmt.Scanln(&taxPercent)
+		tip := mealCost * (float64(tipPercent) / 100.0)
+		tax := mealCost * (float64(taxPercent) / 100.0)
+		totalCost := mealCost + tip + tax
+		fmt.Printf("The total meal cost is %.0f dollars.", totalCost)
+	*/
 }
