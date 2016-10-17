@@ -47,17 +47,18 @@ func calculation(matrix [][]string) int {
 			}
 		}
 	}
-	fmt.Println(arrPrDiag)
 
-	for i := len(matrix) - 1; i > 0; i-- {
-		for j := len(matrix[i]) - 1; j > 0; j-- {
-			if j == i {
+	// problem in this case
+	count := len(matrix[0]) - 1
+	for i := 0; i < len(matrix); i++ {
+		for j := len(matrix[i]) - 1; j >= 0; j-- {
+			if j == count {
 				b, _ := strconv.Atoi(matrix[i][j])
 				arrSecDiag = append(arrSecDiag, b)
 			}
 		}
+		count--
 	}
-	fmt.Println(arrSecDiag)
 
 	for i := 0; i < len(arrPrDiag); i++ {
 		sumPrDiag += arrPrDiag[i]
