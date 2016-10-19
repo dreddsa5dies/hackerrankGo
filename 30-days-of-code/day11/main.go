@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -35,14 +36,9 @@ func main() {
 	}
 
 	// read max sum oh hoursglasses
-	count := 0
-	for i := 0; i < len(arrH); i++ {
-		if count < arrH[i] {
-			count = arrH[i]
-		}
-	}
+	sort.Ints(arrH)
 
 	// stdout
-	fmt.Printf("%v\n", count)
+	fmt.Printf("%v\n", arrH[len(arrH)-1])
 
 }
