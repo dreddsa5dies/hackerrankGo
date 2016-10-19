@@ -11,6 +11,7 @@ import (
 func main() {
 	s := []string{}
 	arr := [][]int{}
+	arrHour := [][]int{}
 
 	// stdin add in 2d arr
 	scanner := bufio.NewScanner(os.Stdin)
@@ -25,11 +26,21 @@ func main() {
 		arr = append(arr, row)
 	}
 
-	// stdout 2d arr
-	for i := 0; i < 6; i++ {
-		for j := 0; j < 6; j++ {
-			fmt.Printf("%v ", arr[i][j])
+	// scans hourglass on arr
+	hourglass := []int{}
+	for i := 0; i < 3; i++ {
+		switch {
+		case i == 0 || i == 2:
+			for j := 0; j < 3; j++ {
+				hourglass = append(hourglass, arr[i][j])
+			}
+		case i == 1:
+			hourglass = append(hourglass, arr[i][1])
 		}
-		fmt.Println()
 	}
+	arrHour = append(arrHour, hourglass)
+
+	// stdout
+	fmt.Printf("%v ", arrHour)
+
 }
