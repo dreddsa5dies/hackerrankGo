@@ -38,21 +38,13 @@ func main() {
 
 // best practice
 // func main() {
-// 	var h, m, s, f string
-// 	fmt.Scanf("%2v:%2v:%2v%2v", &h, &m, &s, &f)
-// 	fmt.Println(convert(h, m, s, f))
-// }
-// func convert(h, m, s, f string) string {
-// 	H, _ := strconv.Atoi(h)
-// 	switch f {
-// 	case "AM":
-// 		if H == 12 {
-// 			H = 0
-// 		}
-// 	case "PM":
-// 		if H != 12 {
-// 			H = H + 12
-// 		}
-// 	}
-// 	return fmt.Sprintf("%02d:%v:%v", H, m, s)
+//     var h, m, s int
+//     var ap string
+//     fmt.Scanf("%d:%d:%d%s", &h, &m, &s, &ap)
+//     if ap == "PM" {
+//         if h < 12 { h += 12 }
+//     } else if h == 12 {
+//         h = 0
+//     }
+//     fmt.Printf("%02d:%02d:%02d", h%24, m, s)
 // }
