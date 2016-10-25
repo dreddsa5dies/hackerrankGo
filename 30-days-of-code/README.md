@@ -1,4 +1,4 @@
-Day 12, 13, 14, 15, 16 - It is not possible to write on the Go
+Day 12, 13, 14, 15, 16, 17 - It is not possible to write on the Go
 
 #Hackerrank.com
 
