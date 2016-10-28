@@ -15,42 +15,55 @@ func main() {
 		arr = append(arr, v)
 	}
 
-	arrC := []int{}
-	for i := 0; i < len(arr); i++ {
-		for j := 0; j < len(arr); j++ {
-			if (arr[i]+arr[j])%k != 0 {
-				arrC = append(arrC, arr[i])
+	rem := []int{}
+	for j := 0; j < n; j++ {
+		rem[j] = arr[j] % k
+	}
+
+	ss := []int{}
+	ic, jc, zi, zj := 0, 0, 0, 0
+	for i := 0; i < n-1; i++ {
+		for j := i + 1; j < n; j++ {
+			if (rem[i] + rem[j]) == k {
+				ic = 0
+				jc = 0
+				for f := 0; f < n; f++ {
+					if rem[f] == i {
+						rem[f] = -1
+						ic++
+					} else if rem[f] == j {
+						rem[f] = -1
+						jc++
+					}
+				}
+				if ic >= jc {
+					for ic > 0 {
+						zi = 0
+						ss[zi] = i
+						zi++
+						ic--
+					}
+				} else {
+					for jc > 0 {
+						zj = 0
+						ss[zj] = j
+						zj++
+						jc--
+					}
+				}
 			}
 		}
 	}
-
-	counts := make(map[int]int, n)
-	for i := 0; i < len(arrC); i++ {
-		counts[arrC[i]] = 0
-	}
-
-	for i := 0; i < len(arrC)-1; i++ {
-		if arrC[i] == arrC[i+1] {
-			counts[arrC[i]]++
+	temp := n
+	for r := 0; r < n; r++ {
+		if rem[r] >= 0 {
+			ss[temp-1] = rem[r]
 		}
 	}
-
-	count := 0
-	for _, y := range counts {
-		// не больше 0
-		// а при наибольшем значении ключа!!
-		if y > 0 {
-			count++
-		}
+	newcount := 0
+	for nc := 0; nc < len(ss); nc++ {
+		newcount++
 	}
 
-	fmt.Println(count)
+	fmt.Println(newcount)
 }
-
-// DONT WORK!!!
-// input
-// 10 4
-// 1 2 3 4 5 6 7 8 9 10
-
-// out
-// 5
