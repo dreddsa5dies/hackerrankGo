@@ -21,12 +21,26 @@ func main() {
 		for j := 0; j < len(arr); j++ {
 			if i != j {
 				if (arr[i]%k + arr[j]%k) == k {
-					arrC[arr[i]]++
 					arrC[arr[j]]++
 				}
 			}
 		}
 	}
 
-	fmt.Println(arrC)
+	for x, _ := range arrC {
+		for i := 0; i < len(arr); i++ {
+			if arr[i] == x {
+				arr = removeAtIndex(arr, i)
+			}
+		}
+	}
+
+	fmt.Println(arr)
+}
+
+func removeAtIndex(source []int, index int) []int {
+	lastIndex := len(source) - 1
+	//меняем последнее значение и значение, которое хотим удалить, местами
+	source[index], source[lastIndex] = source[lastIndex], source[index]
+	return source[:lastIndex]
 }
