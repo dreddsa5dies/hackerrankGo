@@ -66,8 +66,7 @@ func reverse(str string) string {
 		strArrRes = append(strArrRes, strArr[k])
 	}
 
-	strArr[i:] = strArrRes
+	copy(strArr[i:], strArrRes)
 
 	return strings.Join(strArr, "")
-
 }
