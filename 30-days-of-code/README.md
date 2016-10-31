@@ -1,5 +1,7 @@
-Day 12, 13, 14, 15, 16, 17, 18 - It is not possible to write on the Go,  
+Day 12, 13, 14, 15, 16, 17, 18, 19 - It is not possible to write on the Go,  
 I write in PYTHON  
+
+Day 20, 21 - i write on site.  
 
 #Hackerrank.com
 
